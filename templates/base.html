@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/app.css">
     <title>Cupcakes</title>
 </head>
 <body>
-    <h1>Cupcakes</h1>
+    <h1>All Cupcakes</h1>
+
+    <ul style="list-style: none;"" id="list-all-cupcakes">
+        {% for cupcake in cupcakes %}
+        <img class="cupcake-img" src="{{ cupcake.image }}" alt="">
+        <li>{{cupcake.flavor}}  {{ cupcake.size }}  {{ cupcake.rating }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add New Cupcake</h2>
+
+    <form id="add-cupcake-form" action="">
+
+        <div>
+            <label for="flavor">Flavor</label>
+            <input id="flavor" type="text" name="flavor">
+        </div>
+
+        <div>
+            <label for="size">Size</label>
+            <input id="size" type="text" name="size">
+        </div>
+
+        <div>
+            <label for="rating">Rating</label>
+            <input id="rating" type="text" name="rating">
+        </div>
+
+        <div>
+            <label for="image">Image URL</label>
+            <input id="image" type="text" name="image">
+        </div>
+
+        <button>Add Cupcake</button>
+
+    </form>
+
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="/static/cupcakes.js"></script>
+
 </body>
 </html>
